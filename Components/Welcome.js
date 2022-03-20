@@ -11,8 +11,6 @@ class Welcome extends Component{
         this.setState ({message :null});
         fetch('https://jsonplaceholder.typicode.com/todos/8').then(response => response.json())
         .then(json=>this.setState({jsdata:json.title}));
-        
-
     }
     render(){
         return (
@@ -39,4 +37,4 @@ class Welcome extends Component{
     }   
 } 
 
-export {Welcome};
+export {Welcome}; 
