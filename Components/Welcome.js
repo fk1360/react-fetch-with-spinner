@@ -22,7 +22,7 @@ class Welcome extends Component{
                 {this.state.jsdata && 
                     <div>
                         <h2>The loaded data:</h2>
-                        <h2 class="redstyle">
+                        <h2 className="redstyle">
                             {this.state.jsdata}
                         </h2>
                     </div>
@@ -35,6 +35,6 @@ class Welcome extends Component{
             </div>
         )
     }   
-} 
+}  
 
 export {Welcome}; 
