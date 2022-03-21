@@ -16,7 +16,7 @@ class Welcome extends Component{
         return (
             <div>
                 {(!this.state.showmessage && !this.state.jsdata) && <div><br/><Spinner/><br/></div>}
-                {(!this.state.jsdata && this.state.showmessage) && <h2>
+                {(this.state.showmessage && !this.state.jsdata) && <h2>
                     Welcome! Click to view JSON loaded data
                 </h2>}
                 {this.state.jsdata && 
