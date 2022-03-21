@@ -4,20 +4,20 @@ import Spinner from 'reactjs-simple-spinner';
 class Welcome extends Component{
 
     state = {
-        message : 'Welcome! Click to view JSON loaded data',
+        showmessage : true,
         jsdata : null
     }
     load = () => {
-        this.setState ({message :null});
+        this.setState ({showmessage :false});
         fetch('https://jsonplaceholder.typicode.com/todos/8').then(response => response.json())
         .then(json=>this.setState({jsdata:json.title}));
     }
     render(){
         return (
             <div>
-                {(!this.state.message && !this.state.jsdata) && <div><br/><Spinner/></div>}
-                {!this.state.jsdata && <h2>
-                    {this.state.message}
+                {(!this.state.showmessage && !this.state.jsdata) && <div><br/><Spinner/><br/></div>}
+                {(!this.state.jsdata && this.state.showmessage) && <h2>
+                    Welcome! Click to view JSON loaded data
                 </h2>}
                 {this.state.jsdata && 
                     <div>
