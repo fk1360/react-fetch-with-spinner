@@ -5,12 +5,15 @@ class Welcome extends Component{
 
     state = {
         showMessage : true,
-        jsData : null
+        jsData : null,
+        respOk: true,
     }
     load = () => {
-        this.setState ({showMessage :false});
-        fetch('https://jsonplaceholder.typicode.com/todos/8').then(response => response.json())
-        .then(json=>this.setState({jsData:json.title}));
+        this.setState({respOk: true});
+        this.setState({showMessage :false});
+        fetch('https://jsonplaceholder.typicode.com/todos/8').then(res => res.json())
+        .then(json=>this.setState({jsData:json.title}))
+        .catch(error => {if (error) {this.setState({respOk: false})}});
     }
     render(){
         return (
@@ -27,13 +30,14 @@ class Welcome extends Component{
                         </h2>
                     </div>
                 }
+                {!this.state.respOk && !this.state.jsData && <h2>An error occured! Please try again</h2>}
                 {!this.state.jsData &&
                     <button onClick = {this.load}>
-                        Button
+                        Load Data
                     </button>
                 }
             </div>
-        )
+        ) 
     }   
 }  
 
