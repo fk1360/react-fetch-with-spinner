@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Spinner from 'reactjs-simple-spinner';
+import Spinner from "../Components/ui/Spinner.component";
 
 class Welcome extends Component{
 
